@@ -7,8 +7,14 @@ def quit
  puts " "
 end
 
-def play
-
+def play(ship1_length, ship2_length)
+  puts "I have laid out my ships on the grid."
+  puts "You now need to layout your two ships."
+  puts "The first is #{ship1_length} units long and the"
+  puts "second is #{ship2_length} units long."
+  puts "The grid has A1 at the top left and D4 at the bottom right."
+  puts " "
+  puts "Enter the squares for the #{ship1_length}-unit ship:"
 end
 
 def instructions
