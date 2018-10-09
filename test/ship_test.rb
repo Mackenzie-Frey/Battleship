@@ -3,22 +3,30 @@ require './lib/ship'
 
 class ShipTest < Minitest::Test
   def test_it_exists
-    ship = Ship.new("Destroyer")
+    ship = Ship.new
     assert_instance_of Ship, ship
   end
 
-  def test_ship_has_length
-    ship = Ship.new("Destroyer", 3)
-    assert_equal 3, ship.length
+  def test_sunk_gives_boolean
+    ship = Ship.new
+    assert_equal false, ship.sunk?
+    2.times {ship.hit}
+    assert_equal true, ship.sunk?
   end
 
-  def test_ship_can_change_name
-    ship = Ship.new("Submarine", 3)
-    assert_equal "Submarine", ship.name
+  def test_hit_counter_increases_with_hit
+    ship = Ship.new
+    assert_equal 0, ship.hit_counter
+    ship.hit
+    assert_equal 1, ship.hit_counter
+    ship.hit
+    assert_equal 2, ship.hit_counter
   end
 
-  # def test_it_can_occupy_coordinates
-  #   ship = Ship.new("Submarine", 3)
-  #   assert_equal  , ship.occupy(something)
-  # end
+  def test_different_ship_sinks
+    ship = Ship.new(4)
+    assert_equal false, ship.sunk?
+    4.times {ship.hit}
+    assert_equal true, ship.sunk?
+  end
 end

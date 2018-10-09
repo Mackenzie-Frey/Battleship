@@ -1,14 +1,18 @@
 class Ship
-  attr_reader   :name,
-                :length
+  attr_reader   :length,
+                :hit_counter
 
-  def initialize(name, length = 2)
-    @name   = name
-    @length = length
+  def initialize(length = 2)
+    @length      = length
+    @hit_counter = 0
   end
 
-  def occupy(coordinates)
+  def hit
+    @hit_counter += 1
+  end
 
+  def sunk?
+    @length == @hit_counter
   end
 end
 
