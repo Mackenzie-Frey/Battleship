@@ -7,14 +7,26 @@ def quit
  puts " "
 end
 
-def play(ship1_length, ship2_length)
+def play
   puts "I have laid out my ships on the grid."
   puts "You now need to layout your two ships."
-  puts "The first is #{ship1_length} units long and the"
-  puts "second is #{ship2_length} units long."
+  puts "The first is two units long and the"
+  puts "second is three units long."
   puts "The grid has A1 at the top left and D4 at the bottom right."
   puts " "
-  puts "Enter the squares for the #{ship1_length}-unit ship:"
+  puts "Enter the first coordinate for the two-unit ship (ex. A1):"
+  coordinate_1_ship2 = gets.chomp
+  puts "Enter the second coordinate for the two-unit ship (ex. A2):"
+  coordinate_2_ship2 = gets.chomp
+  puts "Enter the first coordinate for the three-unit ship (ex. A1):"
+  coordinate_1_ship3 = gets.chomp
+  puts "Enter the second coordinate for the three-unit ship (ex. A2):"
+  coordinate_2_ship3 = gets.chomp
+  puts "Enter the second coordinate for the three-unit ship (ex. A3):"
+  coordinate_3_ship3 = gets.chomp
+  ship2 = Hash.new(coordinate_1_ship2, coordinate_2_ship2)
+  ship3 = Hash.new(coordinate_1_ship3, coordinate_2_ship3, coordinate_3_ship3)
+  require 'pry'; binding.pry
 end
 
 def instructions
