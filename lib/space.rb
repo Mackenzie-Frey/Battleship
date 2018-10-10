@@ -1,9 +1,7 @@
 class Space
-  attr_reader     :coordinate,
-                  :status
+  attr_reader     :status
 
-  def initialize(coordinate, status = "empty")
-    @coordinate = coordinate
+  def initialize(status = "empty")
     @status     = status
   end
 
