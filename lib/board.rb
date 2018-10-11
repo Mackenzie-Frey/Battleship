@@ -4,15 +4,6 @@ class Board
     @size = size
   end
 
-  def row
-    (1..@size).to_a
-  end
-
-  def column
-    column = ('A'..'Z').to_a
-    column[0..@size - 1]
-  end
-
   def display_grid(cell_hash)
     puts "==========="
     puts ". 1 2 3 4  "

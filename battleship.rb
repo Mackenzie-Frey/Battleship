@@ -38,7 +38,7 @@ class Game
     new_hash[coordinate_3_ship3] = ship3
     @ship_coordinates = new_hash
   end
-
+# Get @ship_coordinates outside of game class (maybe in Board class)
   #board.new
   def instructions
     puts "This is the game of battleship"
