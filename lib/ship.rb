@@ -15,10 +15,3 @@ class Ship
     @length == @hit_counter
   end
 end
-
-# destroyer 3
-# submarine 3
-# aircraft carrier 5
-# battleship 4
-# cruiser 3
-# patrol boat 2

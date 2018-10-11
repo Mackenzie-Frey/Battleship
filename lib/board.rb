@@ -4,15 +4,6 @@ class Board
     @size = size
   end
 
-  def row
-    (1..@size).to_a
-  end
-
-  def column
-    column = ('A'..'Z').to_a
-    column[0..@size - 1]
-  end
-
   def display_grid(cell_hash)
     puts "==========="
     puts ". 1 2 3 4  "
@@ -33,8 +24,7 @@ class Board
 # FOR TESTING
   # require './lib/board.rb'
 #  board = Board.new
-# cell_hash = {A1: "H ", D4: "H ", A2: "H " , A3: "M " , A4: "M ", B1: "H ", B2: "  " , B3: "M " , B4: "M " }
-#  board.display_grid(cell_hash)
+
 
 
   end
