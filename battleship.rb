@@ -27,7 +27,6 @@ attr_reader :ship_coordinates
     puts "Enter the first coordinate for the two-unit ship (ex. A1):"
     @coordinate_1_ship2 = gets.chomp
     a = existing_coordinate_check(@coordinate_1_ship2)
-
     puts "Enter the second coordinate for the two-unit ship (ex. A2):"
     @coordinate_2_ship2 = gets.chomp
     b = existing_coordinate_check(@coordinate_2_ship2)
@@ -40,8 +39,6 @@ attr_reader :ship_coordinates
     puts "Enter the third coordinate for the three-unit ship (ex. A3):"
     @coordinate_3_ship3 = gets.chomp
     e = existing_coordinate_check(@coordinate_3_ship3)
-  #  puts "wolf"
-    #call next method to see if that fixes it.
 
     if a && b && c && d && e
       place_ships
@@ -52,21 +49,16 @@ attr_reader :ship_coordinates
   end
 
   def incorrect_coordinate
-    puts "Sorry incorrect coordinate. Please play the game again."
+    puts "Sorry, at least one of your coordinates is incorrect. Maybe next time you'll get things right."
   end
 
 
   def existing_coordinate_check(coordinate)
     existing_coordinate_array = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"]
     existing_coordinate_array.include?(coordinate)
-        # puts "Sorry, please choose a coordinate that actually exists on the board."
-        # puts "------------------------------------------------"
-        # puts "The game will now restart!"
-        # puts ""
   end
 
   def place_ships
-    require 'pry';binding.pry
     @ship2 = Ship.new(2)
     @ship_coordinates[@coordinate_1_ship2] = @ship2
     @ship_coordinates[@coordinate_2_ship2] = @ship2
@@ -122,4 +114,3 @@ end
 
   game = Game.new
   game.introduction
-  # game.instructions
