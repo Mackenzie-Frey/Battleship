@@ -6,6 +6,12 @@ class Game
   puts "Welcome to BATTLESHIP"
   puts " "
 
+attr_reader :ship_coordinates
+
+  def initialize
+    @ship_coordinates = Hash.new
+  end
+
   def quit
    puts "Your loss, Come Back if you dare"
    puts " "
@@ -19,27 +25,57 @@ class Game
     puts "The grid has A1 at the top left and D4 at the bottom right."
     puts " "
     puts "Enter the first coordinate for the two-unit ship (ex. A1):"
-    coordinate_1_ship2 = gets.chomp
+    @coordinate_1_ship2 = gets.chomp
+    a = existing_coordinate_check(@coordinate_1_ship2)
+
     puts "Enter the second coordinate for the two-unit ship (ex. A2):"
-    coordinate_2_ship2 = gets.chomp
+    @coordinate_2_ship2 = gets.chomp
+    b = existing_coordinate_check(@coordinate_2_ship2)
     puts "Enter the first coordinate for the three-unit ship (ex. A1):"
-    coordinate_1_ship3 = gets.chomp
+    @coordinate_1_ship3 = gets.chomp
+    c = existing_coordinate_check(@coordinate_1_ship3)
     puts "Enter the second coordinate for the three-unit ship (ex. A2):"
-    coordinate_2_ship3 = gets.chomp
-    puts "Enter the second coordinate for the three-unit ship (ex. A3):"
-    coordinate_3_ship3 = gets.chomp
-    new_hash = Hash.new
-    ship2 = Ship.new(2)
-    new_hash[coordinate_1_ship2] = ship2
-    new_hash[coordinate_2_ship2] = ship2
-    ship3 = Ship.new(3)
-    new_hash[coordinate_1_ship3] = ship3
-    new_hash[coordinate_2_ship3] = ship3
-    new_hash[coordinate_3_ship3] = ship3
-    @ship_coordinates = new_hash
+    @coordinate_2_ship3 = gets.chomp
+    d = existing_coordinate_check(@coordinate_2_ship3)
+    puts "Enter the third coordinate for the three-unit ship (ex. A3):"
+    @coordinate_3_ship3 = gets.chomp
+    e = existing_coordinate_check(@coordinate_3_ship3)
+  #  puts "wolf"
+    #call next method to see if that fixes it.
+
+    if a && b && c && d && e
+      place_ships
+    else
+      incorrect_coordinate
+    end
+
   end
-# Get @ship_coordinates outside of game class (maybe in Board class)
-  #board.new
+
+  def incorrect_coordinate
+    puts "Sorry incorrect coordinate. Please play the game again."
+  end
+
+
+  def existing_coordinate_check(coordinate)
+    existing_coordinate_array = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"]
+    existing_coordinate_array.include?(coordinate)
+        # puts "Sorry, please choose a coordinate that actually exists on the board."
+        # puts "------------------------------------------------"
+        # puts "The game will now restart!"
+        # puts ""
+  end
+
+  def place_ships
+    require 'pry';binding.pry
+    @ship2 = Ship.new(2)
+    @ship_coordinates[@coordinate_1_ship2] = @ship2
+    @ship_coordinates[@coordinate_2_ship2] = @ship2
+    @ship3 = Ship.new(3)
+    @ship_coordinates[@coordinate_1_ship3] = @ship3
+    @ship_coordinates[@coordinate_2_ship3] = @ship3
+    @ship_coordinates[@coordinate_3_ship3] = @ship3
+  end
+
   def instructions
     puts "This is the game of battleship"
     puts "You will play against the computer and"
@@ -86,4 +122,4 @@ end
 
   game = Game.new
   game.introduction
-  game.instructions
+  # game.instructions

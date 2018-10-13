@@ -3,6 +3,7 @@ class Space
 
   def initialize(status = "  ")
     @status = status
+    @occupied = false
   end
 
   def hit
@@ -13,6 +14,10 @@ class Space
   def miss
     @status = "M "
       # change value @ that coordinate to "M "
+  end
+
+  def occupied?
+    
   end
 
 end
