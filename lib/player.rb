@@ -42,6 +42,7 @@ end
 
 
  # match stored shot array against ship placement
+ #where do it?
 
 
 
