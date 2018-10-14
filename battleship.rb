@@ -8,6 +8,12 @@ class Game
 
 attr_reader :ship_coordinates
 
+attr_accessor :coordinate_1_ship2,
+              :coordinate_2_ship2,
+              :coordinate_1_ship3,
+              :coordinate_2_ship3,
+              :coordinate_3_ship3
+
   def initialize
     @ship_coordinates = Hash.new
   end
@@ -35,8 +41,7 @@ attr_reader :ship_coordinates
     puts "Enter the third coordinate for the three-unit ship (ex. A3):"
     @coordinate_3_ship3 = gets.chomp
 
-
-    if all_coordinates_are_existing && ship_overlap_check && ship_does_not_wrap_check
+    if all_coordinates_are_existing && ship_overlap_check && ship_does_not_wrap_neither_way_check
       place_ships
     else
       incorrect_coordinate
@@ -48,38 +53,37 @@ attr_reader :ship_coordinates
     ship_does_not_wrap_vertically_check == true && ship_does_not_wrap_horizontally_check == true
   end
 
-    def ship_does_not_wrap_vertically_check
 
-      # Vertical Wrap (difference between LETTERS)
-      # set ordering of letters in an array.
-      letter_ordering = ["A", "B", "C", "D"]
-
+  def ship_does_not_wrap_vertically_check
       coordinate_letter_array =
       ship_coordinate_array.map do |coordinate|
         coordinate.chars[0]
       end
 
-      letter_index_1 =
-      letter_ordering.index(coordinate #grab this from elsewhere)
+      ship2_letter_difference = (coordinate_letter_array[0].ord - coordinate_letter_array[1].ord).abs
 
-      letter_index_2 =
+      ship_3_coordinate_letter_array = coordinate_letter_array[2..4]
 
+      ship3_letter_difference_A = (ship_3_coordinate_letter_array[0].ord - ship_3_coordinate_letter_array[1].ord).abs
+      ship3_letter_difference_B = (ship_3_coordinate_letter_array[1].ord - ship_3_coordinate_letter_array[2].ord).abs
 
-      #Compare the index of the  --- difference
-      # Make sure to include (0 distace change vertically)
-    end
+      (ship2_letter_difference == 0 || ship2_letter_difference == 1) && (ship3_letter_difference_A == 1 && ship3_letter_difference_B == 1)
 
+  end
 
   def ship_does_not_wrap_horizontally_check
-        coordinate_number_array =
-        ship_coordinate_array.map do |coordinate|
-          coordinate.chars[1].to_i
-        end
+      coordinate_number_array =
+      ship_coordinate_array.map do |coordinate|
+        coordinate.chars[1].to_i
+      end
 
-        ship_2_difference = (coordinate_number_array[0] - coordinate_number_array[1]).abs
-        ship_3_difference = (coordinate_number_array[2] - coordinate_number_array[4]).abs
+      ship_2_difference = (coordinate_number_array[0] - coordinate_number_array[1]).abs
 
-        (ship_2_difference == 1) && (ship_3_difference == 2)
+      ship_3_coordinate_number_array = coordinate_number_array[2..4]
+      ship3_number_difference_A = (ship_3_coordinate_number_array[0] - ship_3_coordinate_number_array[1]).abs
+      ship3_number_difference_B = (ship_3_coordinate_number_array[1] - ship_3_coordinate_number_array[2]).abs
+
+      (ship_2_difference == 1) && (ship3_number_difference_A == 1 || ship3_number_difference_A == 0 && ship3_number_difference_B == 1 || ship3_number_difference_B == 0)
   end
 
 
@@ -166,3 +170,6 @@ end
 
   game = Game.new
   game.introduction
+
+# check against Jeff's code and slack group message
+# create a random class
