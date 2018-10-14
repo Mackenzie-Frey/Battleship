@@ -17,7 +17,7 @@ class Space
   end
 
   def occupied?
-    
+
   end
 
 end
