@@ -3,21 +3,16 @@ class Space
 
   def initialize(status = "  ")
     @status = status
-    @occupied = false
   end
 
   def hit
     @status = "H "
-      # change value @ that coordinate to "H "
+      # change value @ that instance of a space-obect to "H "
   end
 
   def miss
     @status = "M "
-      # change value @ that coordinate to "M "
-  end
-
-  def occupied?
-
+      # change value @ that instance of a space-obect to "M "
   end
 
 end

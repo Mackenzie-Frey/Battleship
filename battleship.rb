@@ -171,5 +171,5 @@ end
   game = Game.new
   game.introduction
 
-# check against Jeff's code and slack group message
-# create a random class
+# check against Jeff's code in slack group message
+# create a random class?

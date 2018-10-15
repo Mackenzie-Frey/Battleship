@@ -34,5 +34,7 @@ class ShipTest < Minitest::Test
   def test_it_can_read_coordinate_ship_coordinates
     ship = Ship.new
     assert_equal ["A1"], ship.player_shot
+    skip
+    assert_equal ["A1"], ship.ship_coordinates
   end
 end
