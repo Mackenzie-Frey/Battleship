@@ -11,6 +11,7 @@ class Ship
   def initialize(length = 2)
     @length      = length
     @hit_counter = 0
+    @player = Player.new
   end
 
   def hit
@@ -21,8 +22,11 @@ class Ship
     @length == @hit_counter
   end
 
+#pull in stored_shot_array ex. ["A1", "A2", "D3"] into below method
   def player_shot
-
+    @player.shoot
+    @player.stored_shot_array
+    # require 'pry';binding.pry
   end
 
 end

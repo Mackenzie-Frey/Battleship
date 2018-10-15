@@ -32,10 +32,7 @@ class ShipTest < Minitest::Test
 
 #This test isn't doing anything yet.
   def test_it_can_read_coordinate_ship_coordinates
-skip
     ship = Ship.new
-    player = Player.new
-    player.shoot
     assert_equal ["A1"], ship.player_shot
   end
 end
