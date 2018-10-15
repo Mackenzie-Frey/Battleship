@@ -22,12 +22,19 @@ class Ship
     @length == @hit_counter
   end
 
-#pull in stored_shot_array ex. ["A1", "A2", "D3"] into below method
+
   def player_shot
     @player.shoot
     @player.stored_shot_array
-    # require 'pry';binding.pry
   end
+
+  # pull in ship coordinates
+
+
+
+  #compare stored_shot_array to ship_coordinate_array
+
+
 
 end
 
