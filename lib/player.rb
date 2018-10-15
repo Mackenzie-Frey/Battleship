@@ -36,17 +36,7 @@ class Player
     existing_coordinate_array.include?(coordinate)
   end
 
-
 end
 
 
-
- # match stored shot array against ship placement
-
-
-
-
-  #when is game over
-  # change status of space to H or M
-  # this prints to board
-  # While ship? = false, do loop (asking for shots)
+  # Game over ->>> While ship_sunk? = false, do loop (asking for shots)

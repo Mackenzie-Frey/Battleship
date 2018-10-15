@@ -1,11 +1,14 @@
 require './lib/space'
 
+
 class Board
-  attr_reader :size
+  attr_reader :size,
+              :cell_hash
+
   def initialize(size = 4)
     @size = size
-    space = Space.new
-    @cell_hash = {"A1" => space.status, "A2" => space.status, "A3" => space.status, "A4" => space.status, "B1" => space.status, "B2" => space.status, "B3" => space.status, "B4" => space.status, "C1" => space.status, "C2" => space.status, "C3" => space.status, "C4" => space.status, "D1" => space.status, "D2" => space.status, "D3" => space.status, "D4" => space.status}
+    @cell_hash = {"A1" => Space.new, "A2" => Space.new, "A3" => Space.new, "A4" => Space.new, "B1" => Space.new, "B2" => Space.new, "B3" => Space.new, "B4" => Space.new,
+       "C1" => Space.new, "C2" => Space.new, "C3" => Space.new, "C4" => Space.new, "D1" => Space.new, "D2" => Space.new, "D3" => Space.new, "D4" => Space.new}
   end
 
   def display_grid
@@ -20,24 +23,6 @@ class Board
     puts row_C.join
     puts row_D.join
     puts "==========="
-
-    #array to string
-    # H = "H "
-    # empty = ""  "
-
-# FOR TESTING
-  # require './lib/board.rb'
-#  board = Board.new
-
-
-
   end
 
-
-  #
-  # space(status)
-  #
-  # cell_hash[:A1]
-
-  # status is empty || hit || miss
 end

@@ -67,7 +67,7 @@ attr_accessor :coordinate_1_ship2,
       ship3_letter_difference_A = (ship_3_coordinate_letter_array[0].ord - ship_3_coordinate_letter_array[1].ord).abs
       ship3_letter_difference_B = (ship_3_coordinate_letter_array[1].ord - ship_3_coordinate_letter_array[2].ord).abs
 
-      (ship2_letter_difference == 0 || ship2_letter_difference == 1) && (ship3_letter_difference_A == 1 && ship3_letter_difference_B == 1)
+      (ship2_letter_difference == 0 || ship2_letter_difference == 1) && (ship3_letter_difference_A == 0 || ship3_letter_difference_A == 1 && ship3_letter_difference_B == 0 || ship3_letter_difference_B == 1 )
 
   end
 
@@ -171,5 +171,5 @@ end
   game = Game.new
   game.introduction
 
-# check against Jeff's code and slack group message
-# create a random class
+# check against Jeff's code in slack group message
+# create a random class?
