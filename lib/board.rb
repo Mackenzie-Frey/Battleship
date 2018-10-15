@@ -14,7 +14,7 @@ class Board
   def display_grid
     puts "==========="
     puts ". 1 2 3 4  "
-    row_A = ["A ", @cell_hash["A1"], @cell_hash["A2"], @cell_hash["A3"], @cell_hash["A4"]]
+    row_A = ["A ", @cell_hash["A1"].to_s, @cell_hash["A2"], @cell_hash["A3"], @cell_hash["A4"]]
     row_B = ["B ", @cell_hash["B1"], @cell_hash["B2"], @cell_hash["B3"], @cell_hash["B4"]]
     row_C = ["C ", @cell_hash["C1"], @cell_hash["C2"], @cell_hash["C3"], @cell_hash["C4"]]
     row_D = ["D ", @cell_hash["D1"], @cell_hash["D2"], @cell_hash["D3"], @cell_hash["D4"]]

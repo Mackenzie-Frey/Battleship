@@ -6,7 +6,7 @@ class Ship
   attr_reader   :length,
                 :hit_counter
 
-  def initialize(length = 2)
+  def initialize(length = 2) #should a ship be initialized with a length
     @length      = length
     @hit_counter = 0
     @player = Player.new
@@ -27,8 +27,8 @@ class Ship
   end
 
   def ship_coordinates
-    @game.ship_coordinate_array
     require 'pry';binding.pry
+    @game.ship_coordinate_array
   end
 
   # pull in ship coordinates
@@ -39,3 +39,7 @@ class Ship
 # (What is the best class to do this in?)
 
 end
+
+
+# board is printing weird (with the addition of Space.new)
+#
