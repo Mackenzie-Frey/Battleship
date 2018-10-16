@@ -14,7 +14,7 @@ attr_accessor :coordinate_1_ship2,
               :coordinate_3_ship3
 
   def initialize
-    @ship_coordinates = Hash.new
+    @board = Board.new # make a new board instead
   end
 
   def play
@@ -106,13 +106,15 @@ attr_accessor :coordinate_1_ship2,
 
 #this need to lead to somehing to prevent it from looping to play again.
   def place_ships
-    @ship_coordinates[@coordinate_1_ship2] = "ship2"
-    @ship_coordinates[@coordinate_2_ship2] = "ship2"
+    small_ship = Ship.new(2)
+    big_ship = Ship.new(3)
+    @board.cell_hash[@coordinate_1_ship2].ship = small_ship
+    @board.cell_hash[@coordinate_2_ship2].ship = small_ship
 
-    @ship_coordinates[@coordinate_1_ship3] = "ship3"
-    @ship_coordinates[@coordinate_2_ship3] = "ship3"
-    @ship_coordinates[@coordinate_3_ship3] = "ship3"
-    @ship_coordinates
+    @board.cell_hash[@coordinate_1_ship3].ship = big_ship
+    @board.cell_hash[@coordinate_2_ship3].ship = big_ship
+    @board.cell_hash[@coordinate_3_ship3].ship = big_ship
+    @board.display_grid
   end
 
   def introduction

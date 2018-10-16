@@ -13,14 +13,14 @@ class Board
   def display_grid
     puts "==========="
     puts ". 1 2 3 4  "
-    row_A = ["A ", @cell_hash["A1"], @cell_hash["A2"], @cell_hash["A3"], @cell_hash["A4"]]
-    row_B = ["B ", @cell_hash["B1"], @cell_hash["B2"], @cell_hash["B3"], @cell_hash["B4"]]
-    row_C = ["C ", @cell_hash["C1"], @cell_hash["C2"], @cell_hash["C3"], @cell_hash["C4"]]
-    row_D = ["D ", @cell_hash["D1"], @cell_hash["D2"], @cell_hash["D3"], @cell_hash["D4"]]
-    puts row_A.join
-    puts row_B.join
-    puts row_C.join
-    puts row_D.join
+    row_A = ["A ", @cell_hash["A1"].inspect, @cell_hash["A2"].inspect, @cell_hash["A3"].inspect, @cell_hash["A4"].inspect]
+    row_B = ["B ", @cell_hash["B1"].inspect, @cell_hash["B2"].inspect, @cell_hash["B3"].inspect, @cell_hash["B4"].inspect]
+    row_C = ["C ", @cell_hash["C1"].inspect, @cell_hash["C2"].inspect, @cell_hash["C3"].inspect, @cell_hash["C4"].inspect]
+    row_D = ["D ", @cell_hash["D1"].inspect, @cell_hash["D2"].inspect, @cell_hash["D3"].inspect, @cell_hash["D4"].inspect]
+    p row_A.join
+    p row_B.join
+    p row_C.join
+    p row_D.join
     puts "==========="
   end
 
