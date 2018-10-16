@@ -1,3 +1,5 @@
+require './lib/ship'
+
 class Space
   attr_reader     :status
 

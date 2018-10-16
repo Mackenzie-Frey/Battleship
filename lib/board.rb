@@ -1,6 +1,5 @@
 require './lib/space'
 
-
 class Board
   attr_reader :size,
               :cell_hash
