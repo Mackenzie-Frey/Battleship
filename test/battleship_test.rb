@@ -49,13 +49,4 @@ class GameTest < Minitest::Test
     assert_equal true, game.ship_does_not_wrap_horizontally_check
   end
 
-  def test_it_is_not_an_existing_coordinate
-  end
-
-  def test_it_does_not_have_overlapping_ships
-  end
-
-  def test
-  end
-
 end

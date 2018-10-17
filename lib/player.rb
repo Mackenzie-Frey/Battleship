@@ -37,6 +37,3 @@ class Player
   end
 
 end
-
-
-  # Game over ->>> While ship_sunk? = false, do loop (asking for shots)

@@ -8,21 +8,16 @@ class PlayerTest < Minitest::Test
   end
 
   def test_it_can_display_empty_board
-
     player = Player.new
-    require 'pry';binding.pry
     assert_equal nil ,player.board
-
   end
 
   def test_player_can_take_a_shot
-skip
     player = Player.new
     assert_equal ["A1"], player.shoot
   end
 
   def test_for_duplicate_shots
-skip
     player = Player.new
     player.shoot
     player.shoot

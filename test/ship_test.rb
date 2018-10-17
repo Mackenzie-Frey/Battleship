@@ -30,11 +30,9 @@ class ShipTest < Minitest::Test
     assert_equal true, ship.sunk?
   end
 
-#This test isn't doing anything yet.
   def test_it_can_read_coordinate_ship_coordinates
     ship = Ship.new
     assert_equal ["A1"], ship.player_shot
-    # skip
     assert_equal ["A1"], ship.ship_coordinates
   end
 end

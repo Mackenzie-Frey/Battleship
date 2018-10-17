@@ -14,7 +14,7 @@ attr_accessor :coordinate_1_ship2,
               :coordinate_3_ship3
 
   def initialize
-    @board = Board.new # make a new board instead
+    @board = Board.new
   end
 
   def play
@@ -175,13 +175,11 @@ attr_accessor :coordinate_1_ship2,
   #if no ship M if ship then H and hit counter
   #board will automatically update
 
-  #every class should only reuire one other class.
+  # every class should only require one other class.
   # once need feature, make method for it at the top a make a new method for it one level down
-# Ex. player.shot----- then player class. board.shoot(coordinate). then in space (update self(coordinate)). Space update to hit or miss.
+  # Ex. player.shot----- then player class. board.shoot(coordinate).
+  # then in space (update self(coordinate)). Space update to hit or miss.
 end
 
 game = Game.new
 game.introduction
-
-# check against Jeff's code in slack group message
-# create a random class?
