@@ -1,12 +1,11 @@
-require './lib/space'
-require './lib/ship'
+require './lib/player'
 
 class Game
 
   puts "Welcome to BATTLESHIP"
   puts " "
 
-attr_reader :ship_coordinates
+attr_reader   :ship_coordinates
 
 attr_accessor :coordinate_1_ship2,
               :coordinate_2_ship2,
@@ -15,12 +14,7 @@ attr_accessor :coordinate_1_ship2,
               :coordinate_3_ship3
 
   def initialize
-    @ship_coordinates = Hash.new
-  end
-
-  def quit
-   puts "Your loss, Come Back if you dare"
-   puts " "
+    @board = Board.new # make a new board instead
   end
 
   def play
@@ -46,13 +40,11 @@ attr_accessor :coordinate_1_ship2,
     else
       incorrect_coordinate
     end
-
   end
 
   def ship_does_not_wrap_neither_way_check
     ship_does_not_wrap_vertically_check == true && ship_does_not_wrap_horizontally_check == true
   end
-
 
   def ship_does_not_wrap_vertically_check
       coordinate_letter_array =
@@ -68,7 +60,6 @@ attr_accessor :coordinate_1_ship2,
       ship3_letter_difference_B = (ship_3_coordinate_letter_array[1].ord - ship_3_coordinate_letter_array[2].ord).abs
 
       (ship2_letter_difference == 0 || ship2_letter_difference == 1) && (ship3_letter_difference_A == 0 || ship3_letter_difference_A == 1 && ship3_letter_difference_B == 0 || ship3_letter_difference_B == 1 )
-
   end
 
   def ship_does_not_wrap_horizontally_check
@@ -113,15 +104,32 @@ attr_accessor :coordinate_1_ship2,
     [@coordinate_1_ship2, @coordinate_2_ship2, @coordinate_1_ship3, @coordinate_2_ship3, @coordinate_3_ship3]
   end
 
-
+#this need to lead to somehing to prevent it from looping to play again.
   def place_ships
-    @ship2 = Ship.new(2)
-    @ship_coordinates[@coordinate_1_ship2] = @ship2
-    @ship_coordinates[@coordinate_2_ship2] = @ship2
-    @ship3 = Ship.new(3)
-    @ship_coordinates[@coordinate_1_ship3] = @ship3
-    @ship_coordinates[@coordinate_2_ship3] = @ship3
-    @ship_coordinates[@coordinate_3_ship3] = @ship3
+    small_ship = Ship.new(2)
+    big_ship = Ship.new(3)
+    @board.cell_hash[@coordinate_1_ship2].ship = small_ship
+    @board.cell_hash[@coordinate_2_ship2].ship = small_ship
+
+    @board.cell_hash[@coordinate_1_ship3].ship = big_ship
+    @board.cell_hash[@coordinate_2_ship3].ship = big_ship
+    @board.cell_hash[@coordinate_3_ship3].ship = big_ship
+    @board.display_grid
+  end
+
+  def introduction
+    puts "Would you like to (p)lay, read the (i)instructions, or (q)uit?"
+    user_input = gets.chomp
+    if user_input == "p" || user_input == "play"
+      play
+    elsif user_input == "i" || user_input == "instructions"
+      instructions
+    elsif user_input == "q" || user_input == "quit"
+      quit
+    else
+      puts "Wrong input, please try again"
+      introduction
+    end
   end
 
   def instructions
@@ -151,25 +159,29 @@ attr_accessor :coordinate_1_ship2,
     end
   end
 
-  def introduction
-    puts "Would you like to (p)lay, read the (i)instructions, or (q)uit?"
-    user_input = gets.chomp
-    if user_input == "p" || user_input == "play"
-      play
-    elsif user_input == "i" || user_input == "instructions"
-      instructions
-    elsif user_input == "q" || user_input == "quit"
-      quit
-    else
-      puts "Wrong input, please try again"
-      introduction
-    end
-
+  def quit
+   puts "Your loss, Come Back if you dare"
+   puts " "
   end
+
+  def make_shot(player, coordinate)
+    #tell player to go make the shot
+    # ie player.shoot_at(coordinate)
+  end
+
+  #next thing make a shoot at method in player class
+  #board tell space to go update itself
+  #then space will try to figure out if it has a ship or not
+  #if no ship M if ship then H and hit counter
+  #board will automatically update
+
+  #every class should only reuire one other class.
+  # once need feature, make method for it at the top a make a new method for it one level down
+# Ex. player.shot----- then player class. board.shoot(coordinate). then in space (update self(coordinate)). Space update to hit or miss.
 end
 
-  game = Game.new
-  game.introduction
+game = Game.new
+game.introduction
 
 # check against Jeff's code in slack group message
 # create a random class?
